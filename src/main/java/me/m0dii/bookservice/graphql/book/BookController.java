@@ -1,6 +1,8 @@
-package me.m0dii.bookservice.graphql;
+package me.m0dii.bookservice.graphql.book;
 
 
+import me.m0dii.bookservice.graphql.author.Author;
+import me.m0dii.bookservice.graphql.author.AuthorInput;
 import org.springframework.graphql.data.method.annotation.*;
 import org.springframework.stereotype.Controller;
 
@@ -25,8 +27,8 @@ public class BookController {
     }
 
     @MutationMapping
-    public Book addBook(@Argument String title, @Argument String author) {
-        return service.addBook(title, author);
+    public Book addBook(@Argument BookInput book) {
+        return service.addBook(book);
     }
 
     @MutationMapping
